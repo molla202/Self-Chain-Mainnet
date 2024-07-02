@@ -132,6 +132,12 @@ sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.
 sed -i -e "s%^address = \"tcp://0.0.0.0:1317\"%address = \"tcp://0.0.0.0:${CUSTOM_PORT}17\"%; s%^address = \":8080\"%address = \":${CUSTOM_PORT}80\"%; s%^address = \"localhost:9090\"%address = \"localhost:${CUSTOM_PORT}90\"%; s%^address = \"localhost:9091\"%address = \"localhost:${CUSTOM_PORT}91\"%" $HOME/.selfchain/config/app.toml
 ```
 ### 🚧 Başlatalım
+Not: önce ufak bir peer ayarı gerekli
+```
+nano $HOME/.selfchain/config/config.toml
+```
+`handshake_timeout = "120s"`
+`dial_timeout = "120s"`
 ```
 sudo systemctl restart selfchaind
 journalctl -fu selfchaind -o cat
