@@ -97,7 +97,7 @@ curl -Ls https://raw.githubusercontent.com/molla202/Self-Chain-Mainnet/main/gene
 ```
 ### 🚧 Gas ayarı
 ```
-sed -i.bak -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.0025uward\"/;" ~/.selfchain/config/app.toml
+sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.005uslf\"|" $HOME/.selfchain/config/app.toml
 ```
 ### 🚧 Peer
 ```
@@ -149,9 +149,25 @@ journalctl -fu selfchaind -o cat
 selfchaind keys add cüzdan-adi
 ```
 ### 🚧 Validator Olusturma
-
-
-
+```
+selfchaind tx staking create-validator \
+    --amount=1000000uslf \
+    --pubkey=$(selfchaind tendermint show-validator) \
+    --moniker="moniker-adi-yaz" \
+    --website="" \
+    --details="" \
+    --chain-id="self-1" \
+    --commission-rate="0.10" \
+    --commission-max-rate="0.15" \
+    --commission-max-change-rate="0.05" \
+    --min-self-delegation="1000000" \
+    --broadcast-mode sync \
+    --gas="auto" \
+    --gas-adjustment="1.2" \
+    --gas-prices="0.5uslf" \
+    --from="cüzdan-adi" \
+    -y
+```
 ### Komple Silme
 ```
 sudo systemctl stop selfchaind
