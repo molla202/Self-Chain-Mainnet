@@ -93,7 +93,7 @@ selfchaind init yaz-bura --chain-id self-1
 ```
 ### 🚧 Genesis addrbook
 ```
-
+curl -Ls https://raw.githubusercontent.com/molla202/Self-Chain-Mainnet/main/genesis.json > $HOME/.selfchain/config/genesis.json
 ```
 ### 🚧 Gas ayarı
 ```
