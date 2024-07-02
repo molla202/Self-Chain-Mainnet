@@ -160,11 +160,10 @@ selfchaind tx staking create-validator \
     --commission-rate="0.10" \
     --commission-max-rate="0.15" \
     --commission-max-change-rate="0.05" \
-    --min-self-delegation="1000000" \
-    --broadcast-mode sync \
+    --min-self-delegation="1" \
     --gas="auto" \
-    --gas-adjustment="1.2" \
-    --gas-prices="0.5uslf" \
+    --gas-adjustment="1.4" \
+    --gas-prices="0.005uslf" \
     --from="cüzdan-adi" \
     -y
 ```
