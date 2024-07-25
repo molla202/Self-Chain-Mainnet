@@ -37,7 +37,8 @@ source $HOME/.bash_profile
 
 ```
 cd $HOME
-wget https://snap.nodex.one/selfchain/selfchaind
+wget https://github.com/hotcrosscom/Self-Chain-Releases/releases/download/mainnet-v1.0.1/selfchaind-linux-amd64
+mv selfchaind-linux-amd64 selfchaind
 chmod +x selfchaind
 ```
 ```
@@ -97,8 +98,8 @@ sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.005uslf\"|" $HOME
 ```
 ### 🚧 Peer
 ```
-SEEDS="5f5cfac5c38506fbb4275c19e87c4107ec48808d@seeds.nodex.one:12810,b307b56b94bd3a02fcad5b6904464a391e13cf48@128.199.33.181:26656,71b8d630e7c3e31f2743fda68e6d3ac64f41cece@209.97.174.97:26656,6ae10267d8581414b37553655be22297b2f92087@174.138.25.159:26656,9512a59cf93b987aff830148421a514cacb8a1b8@170.64.141.15:26656,55d3e1761d6752eeb72b8b86decbca0d56f6a885@159.89.173.150:26656,2f547f93392d7351c74a0d8cae1d44f172cf32e5@64.227.156.23:26656"
-PEERS="b307b56b94bd3a02fcad5b6904464a391e13cf48@128.199.33.181:26656,71b8d630e7c3e31f2743fda68e6d3ac64f41cece@209.97.174.97:26656,6ae10267d8581414b37553655be22297b2f92087@174.138.25.159:26656,9512a59cf93b987aff830148421a514cacb8a1b8@170.64.141.15:26656,55d3e1761d6752eeb72b8b86decbca0d56f6a885@159.89.173.150:26656,2f547f93392d7351c74a0d8cae1d44f172cf32e5@64.227.156.23:26656"
+SEEDS=
+PEERS="f238d6a52578975198ceac2b0c2b004d49d5613f@88.198.5.77:31656,7a9038d1efd34c7f3baea17d8822262a981568b1@217.182.136.79:30156,b844793daeffaedfcdbd5b08688cd10e1859d678@37.120.245.116:26656,b307b56b94bd3a02fcad5b6904464a391e13cf48@128.199.33.181:26656,5bfe7ec3ce0fbbf6d724dc85edef31c23b0a5e5e@94.130.138.48:41656,8401cbf633c496e464a2d016b333f61ff34e9ee9@167.71.233.135:26656,2f547f93392d7351c74a0d8cae1d44f172cf32e5@64.227.156.23:26656,6a3a0db2763d8222d00af55cbbe35824a39c8292@176.9.183.45:34656,6ae10267d8581414b37553655be22297b2f92087@174.138.25.159:26656,861152eda2fbab6555e8188088ea4dea9472a174@38.242.157.6:26656,a950d48fce4a648aacf7327198e6ea3e545f3112@168.119.166.138:26656,e097dc629cbe874b139841dedb06775cc75435ee@65.108.237.188:20656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.selfchain/config/config.toml
 ```
 ### config pruning
@@ -113,8 +114,8 @@ sed -i \
 ### 🚧 Snap
 ```
 selfchaind tendermint unsafe-reset-all --home $HOME/.selfchain
-if curl -s --head curl http://37.120.189.81/selfchain_testnet/selfchain_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
-  curl http://37.120.189.81/selfchain_testnet/selfchain_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.selfchain
+if curl -s --head curl http://37.120.189.81/selfchain_mainnet/selfchain_snap.tar.lz4 | head -n 1 | grep "200" > /dev/null; then
+  curl http://37.120.189.81/selfchain_mainnet/selfchain_snap.tar.lz4 | lz4 -dc - | tar -xf - -C $HOME/.selfchain
     else
   echo no have snap
 fi
