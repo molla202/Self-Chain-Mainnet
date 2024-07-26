@@ -17,6 +17,10 @@
 
 https://explorer.selfchain.xyz/selfchain/staking/selfvaloper1v5el9f0fgq30dux2lt4nh98a0cjvnjtm7fc4r2
 
+### Public RPC and Explorer
+
+SOON...
+
 ### 🚧Gerekli kurulumlar
 ```
 sudo apt update && sudo apt upgrade -y
