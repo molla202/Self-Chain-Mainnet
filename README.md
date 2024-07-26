@@ -13,6 +13,10 @@
 | RAM	| 8+ or 16+ GB |
 | Storage	| 400 GB SSD |
 
+### Explorer
+
+https://explorer.selfchain.xyz/selfchain/staking/selfvaloper1v5el9f0fgq30dux2lt4nh98a0cjvnjtm7fc4r2
+
 ### 🚧Gerekli kurulumlar
 ```
 sudo apt update && sudo apt upgrade -y
