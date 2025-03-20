@@ -120,7 +120,7 @@ SEEDS=
 PEERS="3a6608f456836bdd69d65ae2cf5854f8cd76c27b@3.147.222.52:26656,c0dbddb16c0060c99f243b80b20c9bccce71a7bf@3.21.176.122:26656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.selfchain/config/config.toml
 ```
-### config pruning
+### config pruning and indexer
 ```
 sed -i \
   -e 's|^pruning *=.*|pruning = "custom"|' \
@@ -128,6 +128,10 @@ sed -i \
   -e 's|^pruning-keep-every *=.*|pruning-keep-every = "0"|' \
   -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
   $HOME/.selfchain/config/app.toml
+```
+```
+indexer="null"
+sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.selfchain/config/config.toml
 ```
 ### 🚧 Snap
 NOT : yenilecek yapmayın.
