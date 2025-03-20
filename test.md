@@ -17,6 +17,8 @@
 
 https://testnet.selfchain.xyz/self/staking
 
+https://discord.gg/64eUrMcp
+
 ### Public RPC and Explorer
 
 SOON...
