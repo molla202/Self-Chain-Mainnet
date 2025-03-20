@@ -115,7 +115,7 @@ sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.005uslf\"|" $HOME
 ### 🚧 Peer
 ```
 SEEDS=
-PEERS="447c1f962696fcdd6c31ca1ae073c97c9cb15f58@3.138.56.49,3a6608f456836bdd69d65ae2cf5854f8cd76c27b@3.147.222.52:26656,c0dbddb16c0060c99f243b80b20c9bccce71a7bf@3.21.176.122:26656"
+PEERS="3a6608f456836bdd69d65ae2cf5854f8cd76c27b@3.147.222.52:26656,c0dbddb16c0060c99f243b80b20c9bccce71a7bf@3.21.176.122:26656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.selfchain/config/config.toml
 ```
 ### config pruning
@@ -128,6 +128,7 @@ sed -i \
   $HOME/.selfchain/config/app.toml
 ```
 ### 🚧 Snap
+NOT : yenilecek yapmayın.
 ```
 mv $HOME/.selfchain/data/priv_validator_state.json $HOME/.selfchain/priv_validator_state.json.backup 
 
