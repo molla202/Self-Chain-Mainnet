@@ -161,7 +161,7 @@ selfchaind tx staking create-validator \
     --moniker="moniker-adi-yaz" \
     --website="" \
     --details="" \
-    --chain-id="self-1" \
+    --chain-id="selfchain-testnet" \
     --commission-rate="0.10" \
     --commission-max-rate="0.15" \
     --commission-max-change-rate="0.05" \
