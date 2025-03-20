@@ -1,4 +1,4 @@
-<h1 align="center"> Self Chain Mainnet </h1>
+<h1 align="center"> Self Chain Test V2 </h1>
 
 
 
