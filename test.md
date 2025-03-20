@@ -24,7 +24,7 @@ SOON...
 ### 🚧Gerekli kurulumlar
 ```
 sudo apt update && sudo apt upgrade -y
-sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip -y
+sudo apt install curl git wget htop tmux build-essential jq make lz4 gcc unzip unrar -y
 ```
 
 ### 🚧 Go kurulumu
@@ -56,6 +56,14 @@ mv selfchaind $HOME/.selfchain/cosmovisor/genesis/bin/
 ```
 sudo ln -s $HOME/.selfchain/cosmovisor/genesis $HOME/.selfchain/cosmovisor/current -f
 sudo ln -s $HOME/.selfchain/cosmovisor/current/bin/selfchaind /usr/local/bin/selfchaind -f
+```
+```
+cd $HOME
+wget https://github.com/molla202/Self-Chain-Mainnet/raw/main/selfchaind.rar
+unrar x selfchaind.rar
+chmod +x selfchaind
+mkdir -p $HOME/.selfchain/cosmovisor/upgrades/v2/bin
+mv selfchaind $HOME/.selfchain/cosmovisor/upgrades/v2/bin/
 ```
 ```
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@v1.5.0
