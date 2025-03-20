@@ -100,7 +100,7 @@ sudo systemctl enable selfchaind
 ```
 selfchaind config chain-id selfchain-testnet
 selfchaind config keyring-backend file
-selfchaind config node tcp://localhost:12857
+selfchaind config node tcp://localhost:11557
 ```
 * Moniker adını yaz
 ```
