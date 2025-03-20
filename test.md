@@ -94,7 +94,7 @@ selfchaind config node tcp://localhost:12857
 ```
 * Moniker adını yaz
 ```
-selfchaind init yaz-bura --chain-id self-1
+selfchaind init yaz-bura --chain-id selfchain-testnet
 ```
 ### 🚧 Genesis addrbook
 ```
