@@ -88,7 +88,7 @@ sudo systemctl enable selfchaind
 ```
 ### 🚧 İnit
 ```
-selfchaind config chain-id self-1
+selfchaind config chain-id selfchain-testnet
 selfchaind config keyring-backend file
 selfchaind config node tcp://localhost:12857
 ```
@@ -98,8 +98,6 @@ selfchaind init yaz-bura --chain-id self-1
 ```
 ### 🚧 Genesis addrbook
 ```
-curl -Ls https://raw.githubusercontent.com/molla202/Self-Chain-Mainnet/main/genesis.json > $HOME/.selfchain/config/genesis.json
-curl -Ls https://raw.githubusercontent.com/molla202/Self-Chain-Mainnet/main/addrbook.json > $HOME/.selfchain/config/addrbook.json
 ```
 ### 🚧 Gas ayarı
 ```
@@ -108,7 +106,7 @@ sed -i -e "s|^minimum-gas-prices *=.*|minimum-gas-prices = \"0.005uslf\"|" $HOME
 ### 🚧 Peer
 ```
 SEEDS=
-PEERS="f238d6a52578975198ceac2b0c2b004d49d5613f@88.198.5.77:31656,7a9038d1efd34c7f3baea17d8822262a981568b1@217.182.136.79:30156,b844793daeffaedfcdbd5b08688cd10e1859d678@37.120.245.116:26656,b307b56b94bd3a02fcad5b6904464a391e13cf48@128.199.33.181:26656,5bfe7ec3ce0fbbf6d724dc85edef31c23b0a5e5e@94.130.138.48:41656,8401cbf633c496e464a2d016b333f61ff34e9ee9@167.71.233.135:26656,2f547f93392d7351c74a0d8cae1d44f172cf32e5@64.227.156.23:26656,6a3a0db2763d8222d00af55cbbe35824a39c8292@176.9.183.45:34656,6ae10267d8581414b37553655be22297b2f92087@174.138.25.159:26656,861152eda2fbab6555e8188088ea4dea9472a174@38.242.157.6:26656,a950d48fce4a648aacf7327198e6ea3e545f3112@168.119.166.138:26656,e097dc629cbe874b139841dedb06775cc75435ee@65.108.237.188:20656"
+PEERS="447c1f962696fcdd6c31ca1ae073c97c9cb15f58@3.138.56.49,3a6608f456836bdd69d65ae2cf5854f8cd76c27b@3.147.222.52:26656,c0dbddb16c0060c99f243b80b20c9bccce71a7bf@3.21.176.122:26656"
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $HOME/.selfchain/config/config.toml
 ```
 ### config pruning
