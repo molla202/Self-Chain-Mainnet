@@ -185,7 +185,7 @@ selfchaind tx staking create-validator \
 ### Yararlı kodlar
 #### Ödülleri çek 
 ```
-selfchaind tx distribution withdraw-rewards $(selfchaind keys show wallet --bech val -a) --from wallet --commission --chain-id selfchain-testnet ---gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" -y
+selfchaind tx distribution withdraw-rewards $(selfchaind keys show wallet --bech val -a) --from wallet --commission --chain-id selfchain-testnet --gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" -y
 ```
 
 #### kendine delege
