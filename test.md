@@ -181,6 +181,19 @@ selfchaind tx staking create-validator \
     --from="cüzdan-adi" \
     -y
 ```
+
+### Yararlı kodlar
+#### Ödülleri çek 
+```
+selfchaind tx distribution withdraw-rewards valoper-adres-yaz --from wallet-yaz --commission --chain-id selfchain-testnet ---gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" -y
+```
+
+#### kendine delege
+```
+selfchaind tx staking delegate $(selfchaind keys show $WALLET --bech val -a) miktar000000uslf --from wallet-yaz --chain-id selfchain-testnet --gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" -y 
+```
+
+
 ### Komple Silme
 ```
 sudo systemctl stop selfchaind
