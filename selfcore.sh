@@ -51,8 +51,10 @@ echo "Contract deploy ediliyor..."
 TX_HASH=$(selfchaind tx wasm store $CONTRACT_WASM --from $KEY_NAME --gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" -y --output json | jq -r '.txhash')
 echo "Contract başarıyla deploy edildi. TxHash: $TX_HASH"
 
+# Bekleme süresi ekleyin, işlem tamamlanması için
+sleep 10
+
 # Code ID'yi alın
-sleep 5  # Bekleme süresi ekleyin, işlem tamamlanması için
 CODE_ID=$(selfchaind q tx $TX_HASH --output json | jq -r '.logs[0].events[] | select(.type == "store_code") | .attributes[] | select(.key == "code_id") | .value')
 
 # Token'ı oluşturun
