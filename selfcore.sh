@@ -3,25 +3,33 @@
 # Başlık gösterimi
 sleep 1
 echo -e '\e[0;32m'
-echo " ▄████████  ▄██████▄     ▄████████    ▄████████     ███▄▄▄▄    ▄██████▄  ████████▄     ▄████████ ";
-echo "███    ███ ███    ███   ███    ███   ███    ███     ███▀▀▀██▄ ███    ███ ███   ▀███   ███    ███ ";
-echo "███    █▀  ███    ███   ███    ███   ███    █▀      ███   ███ ███    ███ ███    ███   ███    █▀  ";
-echo "███        ███    ███  ▄███▄▄▄▄██▀  ▄███▄▄▄         ███   ███ ███    ███ ███    ███  ▄███▄▄▄     ";
-echo "███        ███    ███ ▀▀███▀▀▀▀▀   ▀▀███▀▀▀         ███   ███ ███    ███ ███    ███ ▀▀███▀▀▀     ";
-echo "███    █▄  ███    ███ ▀███████████   ███    █▄      ███   ███ ███    ███ ███    ███   ███    █▄  ";
-echo "███    ███ ███    ███   ███    ███   ███    ███     ███   ███ ███    ███ ███   ▄███   ███    ███ ";
-echo "████████▀   ▀██████▀    ███    ███   ██████████      ▀█   █▀   ▀██████▀  ████████▀    ██████████ ";
-echo "                        ███    ███                                                               ";
+echo " ▄████████  ▄██████▄     ▄████████    ▄████████     ███▄▄▄▄    ▄██████▄  ████████▄     ▄████████ "
+echo "███    ███ ███    ███   ███    ███   ███    ███     ███▀▀▀██▄ ███    ███ ███   ▀███   ███    ███ "
+echo "███    █▀  ███    ███   ███    ███   ███    █▀      ███   ███ ███    ███ ███    ███   ███    █▀  "
+echo "███        ███    ███  ▄███▄▄▄▄██▀  ▄███▄▄▄         ███   ███ ███    ███ ███    ███  ▄███▄▄▄     "
+echo "███        ███    ███ ▀▀███▀▀▀▀▀   ▀▀███▀▀▀         ███   ███ ███    ███ ███    ███ ▀▀███▀▀▀     "
+echo "███    █▄  ███    ███ ▀███████████   ███    █▄      ███   ███ ███    ███ ███    ███   ███    █▄  "
+echo "███    ███ ███    ███   ███    ███   ███    ███     ███   ███ ███    ███ ███   ▄███   ███    ███ "
+echo "████████▀   ▀██████▀    ███    ███   ██████████      ▀█   █▀   ▀██████▀  ████████▀    ██████████ "
+echo "                        ███    ███                                                               "
 echo ""
 echo -e '\e[0m'
 sleep 3
 
 # Dosyaları indirin ve klasörü oluşturun
 echo "Dosyaları indiriliyor ve klasör oluşturuluyor..."
+# Klasörü oluşturun
 mkdir -p $HOME/selfcore
 cd $HOME/selfcore
-wget https://github.com/molla202/molla202/raw/main/cw20_base.wasm
-echo "Dosyalar başarıyla indirildi ve klasör oluşturuldu."
+
+# Dosya varsa üzerine yaz, yoksa indir
+if [ ! -f "cw20_base.wasm" ]; then
+  wget https://github.com/molla202/molla202/raw/main/cw20_base.wasm
+  echo "Dosya başarıyla indirildi."
+else
+  echo "Dosya zaten mevcut, üzerine yazılıyor..."
+  wget -O cw20_base.wasm https://github.com/molla202/molla202/raw/main/cw20_base.wasm
+fi
 
 # Kullanıcıdan gerekli bilgileri alın
 read -p "Lütfen cüzdan adınızı girin: " KEY_NAME
