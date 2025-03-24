@@ -71,10 +71,11 @@ selfchaind tx wasm instantiate $CODE_ID "$INIT" --from $KEY_NAME --label "test" 
 echo "Token başarıyla oluşturuldu."
 
 # Contract adresini alın
-sleep 5  # Bekleme süresi ekleyin, işlem tamamlanması için
+sleep 10  # Bekleme süresi ekleyin, işlem tamamlanması için
 CONTRACT=$(selfchaind query wasm list-contract-by-code $CODE_ID --output json | jq -r '.contracts[-1]')
 
 # Her adrese token gönderin
+sleep 10  # Bekleme süresi ekleyin, işlem tamamlanması için
 echo "Token gönderimi başlıyor..."
 for ADDRESS in "${ADDRESSES[@]}"; do
   TRANSFER=$(jq -n --arg recipient "$ADDRESS" '{"transfer":{"recipient":$recipient,"amount":"100"}}')
