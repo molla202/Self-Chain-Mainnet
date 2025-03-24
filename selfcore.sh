@@ -48,14 +48,12 @@ INIT=$(jq -n \
 
 # Contract'ı deploy edin
 echo "Contract deploy ediliyor..."
-selfchaind tx wasm store $CONTRACT_WASM --from $KEY_NAME --gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" -y
-echo "Contract başarıyla deploy edildi."
-
-# Son işlemi alın
-LATEST_TX=$(selfchaind q txs --page 1 --limit 1 --output json | jq -r '.txs[0].txhash')
+TX_HASH=$(selfchaind tx wasm store $CONTRACT_WASM --from $KEY_NAME --gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" -y --output json | jq -r '.txhash')
+echo "Contract başarıyla deploy edildi. TxHash: $TX_HASH"
 
 # Code ID'yi alın
-CODE_ID=$(selfchaind q tx $LATEST_TX --output json | jq -r '.raw_log' | grep -o '"code_id":"[0-9]\+' | grep -o '[0-9]\+')
+sleep 5  # Bekleme süresi ekleyin, işlem tamamlanması için
+CODE_ID=$(selfchaind q tx $TX_HASH --output json | jq -r '.logs[0].events[] | select(.type == "store_code") | .attributes[] | select(.key == "code_id") | .value')
 
 # Token'ı oluşturun
 echo "Token oluşturuluyor..."
@@ -69,7 +67,7 @@ CONTRACT=$(selfchaind query wasm list-contract-by-code $CODE_ID --output json | 
 echo "Token gönderimi başlıyor..."
 for ADDRESS in "${ADDRESSES[@]}"; do
   TRANSFER=$(jq -n --arg recipient "$ADDRESS" '{"transfer":{"recipient":$recipient,"amount":"100"}}')
-  TX_HASH=$(selfchaind tx wasm execute $CONTRACT "$TRANSFER" --gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" --from $KEY_NAME -y | jq -r '.txhash')
+  TX_HASH=$(selfchaind tx wasm execute $CONTRACT "$TRANSFER" --gas auto --gas-adjustment 1.4 --gas-prices="0.005uslf" --from $KEY_NAME -y --output json | jq -r '.txhash')
   echo "Token başarıyla gönderildi. TxHash: $TX_HASH"
 done
 
