@@ -44,7 +44,7 @@ INIT=$(jq -n \
   --arg name "$TOKEN_NAME" \
   --arg symbol "$TOKEN_SYMBOL" \
   --arg address "$WALLET_ADDRESS" \
-  '{"name":$name,"symbol":$symbol,"decimals":6,"initial_balances":[{"address":$address,"amount":"5000000"}],"mint":{"minter":$address},"marketing":{}}')
+  '{name: $name, symbol: $symbol, decimals: 6, initial_balances: [{address: $address, amount: "5000000"}], mint: {minter: $address}, marketing: {}}')
 
 # Contract'ı deploy edin
 echo "Contract deploy ediliyor..."
