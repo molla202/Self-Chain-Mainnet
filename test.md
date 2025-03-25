@@ -129,10 +129,7 @@ sed -i \
   -e 's|^pruning-interval *=.*|pruning-interval = "19"|' \
   $HOME/.selfchain/config/app.toml
 ```
-```
-indexer="null"
-sed -i -e "s/^indexer *=.*/indexer = \"$indexer\"/" $HOME/.selfchain/config/config.toml
-```
+
 ### 🚧 Snap
 NOT : yenilecek yapmayın.
 ```
