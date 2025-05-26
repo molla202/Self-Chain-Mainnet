@@ -108,7 +108,7 @@ selfchaind init yaz-bura --chain-id selfchain-testnet
 ```
 ### 🚧 Genesis addrbook
 ```
-curl -Ls https://raw.githubusercontent.com/molla202/Self-Chain-Mainnet/refs/heads/main/geneisitest2.json > $HOME/.selfchain/config/genesis.json
+curl -Ls https://raw.githubusercontent.com/molla202/Self-Chain-Mainnet/refs/heads/main/genesistest2.json > $HOME/.selfchain/config/genesis.json
 ```
 ### 🚧 Gas ayarı
 ```
